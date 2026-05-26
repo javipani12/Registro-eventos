@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/estilos.css">
+    <link rel="icon" type="image/png" sizes="32x32" href="./img/icono.png">
+    <title>Listado de participantes</title>
+</head>
+<body class="pagina-listado">
+    <header class="cabecera">
+        <nav class="navegacion">
+            <h1 class="titulo-proyecto">Listado de inscritos</h1>
+        </nav>
+    </header>
+    <main class="contenido-listado">
+        <header class="cabecera-listado">
+            <h2 class="titulo-listado">Participantes registrados</h2>
+            <button type="button" class="boton-volver" onclick="window.location.href='./index.html'">Volver</button>
+        </header>
+
+        <section class="buscador-listado">
+            <input class="campo-busqueda" type="text" id="busqueda" placeholder="Buscar por nombre o NIF...">
+            <button class="boton-listado" id="btn-buscar">Buscar</button>
+            <button class="boton-listado boton-listado--secundario" id="btn-recargar">Recargar</button>
+        </section>
+
+        <section class="seccion-tabla">
+            <table class="tabla-participantes">
+                <thead>
+                    <tr>
+                        <th>NIF</th>
+                        <th>Nombre</th>
+                        <th>Apellidos</th>
+                        <th>Edad</th>
+                        <th>Domicilio</th>
+                        <th>Población</th>
+                        <th>Provincia</th>
+                        <th>Código Postal</th>
+                        <th>Teléfono</th>
+                        <th>Email</th>
+                        <th>Modalidad</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>12345678A</td>
+                        <td>Juan</td>
+                        <td>Pérez</td>
+                        <td>30</td>
+                        <td>Calle Falsa 123</td>
+                        <td>Madrid</td>
+                        <td>Madrid</td>
+                        <td>28001</td>
+                        <td>911234567</td>
+                        <td>juan.perez@email.com</td>
+                        <td>Desarrollo Web</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+    </main>
+    <footer class="pie-pagina">
+        <p>&copy; 2024 Listado de Participantes. Todos los derechos reservados.</p>
+    </footer>
+</body>
+</html>
