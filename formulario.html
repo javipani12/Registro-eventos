@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./css/estilos.css">
     <link rel="icon" type="image/png" sizes="32x32" href="./img/icono.png">
+    <script src="./js/formulario.js" defer></script>
     <title>Registrar participante</title>
 </head>
 <body>
@@ -15,7 +16,7 @@
         </nav>
     </header>
 
-    <section class="formulario_base">
+    <section class="mensaje_formulario" id="mensaje-formulario">
         <p>Por favor, completa el formulario para registrar tu participación en el evento.</p>
     </section>
     
@@ -26,7 +27,7 @@
                 <button type="button" class="boton-volver" onclick="window.location.href='./index.html'">Volver</button>
             </header>
 
-            <form action="" method="POST" class="formulario-registro">
+            <form action="" method="POST" class="formulario-registro" novalidate>
                 <div class="campo-formulario-grupo">
                     <label for="nif">NIF:</label>
                     <input type="text" id="nif" name="nif" class="campo-formulario" novalidate>
@@ -49,7 +50,7 @@
                     <label for="edad">Edad:</label>
                     <div class="grupo-edad">
                         <button id="boton_restar_edad" class="boton-cantidad" type="button">-</button>
-                        <input type="number" id="edad" name="edad" class="campo-formulario campo-formulario--edad" novalidate>
+                        <input type="number" id="edad" name="edad" class="campo-formulario campo-formulario--edad" value="19" novalidate>
                         <button id="boton_sumar_edad" class="boton-cantidad" type="button">+</button>
                     </div>
                     <span id="error-edad" class="error"></span>
