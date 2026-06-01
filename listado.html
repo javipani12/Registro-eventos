@@ -21,8 +21,8 @@
 
         <section class="buscador-listado">
             <input class="campo-busqueda" type="text" id="busqueda" placeholder="Buscar por nombre o NIF...">
-            <button class="boton-listado" id="btn-buscar">Buscar</button>
-            <button class="boton-listado boton-listado--secundario" id="btn-recargar">Recargar</button>
+            <button type="button" class="boton-listado" id="btn-buscar">Buscar</button>
+            <button type="button" class="boton-listado boton-listado--secundario" id="btn-recargar">Recargar</button>
         </section>
 
         <section class="seccion-tabla">
@@ -42,20 +42,8 @@
                         <th>Modalidad</th>
                     </tr>
                 </thead>
-                <tbody>
-                    <tr>
-                        <td>12345678A</td>
-                        <td>Juan</td>
-                        <td>Pérez</td>
-                        <td>30</td>
-                        <td>Calle Falsa 123</td>
-                        <td>Madrid</td>
-                        <td>Madrid</td>
-                        <td>28001</td>
-                        <td>911234567</td>
-                        <td>juan.perez@email.com</td>
-                        <td>Desarrollo Web</td>
-                    </tr>
+                <tbody id="tabla-participantes-body">
+                    <!-- Las filas de participantes se cargarán aquí dinámicamente -->
                 </tbody>
             </table>
         </section>
@@ -63,5 +51,6 @@
     <footer class="pie-pagina">
         <p>&copy; 2024 Listado de Participantes. Todos los derechos reservados.</p>
     </footer>
+    <script src="./js/listado.js" defer></script>
 </body>
 </html>

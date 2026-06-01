@@ -274,11 +274,33 @@ form.addEventListener('submit', (evento) => {
 		return;
 	}
 
-	// Si no hay errores, se muestra el mensaje de éxito y se deja el formulario vacío.
 	evento.preventDefault();
-	form.reset();
-	mensajeFormulario.className = 'mensaje_formulario mensaje_formulario_exito';
-	mensajeFormulario.textContent = 'El participante se ha registrado correctamente.';
+
+	fetch(form.action, {
+		method: 'POST',
+		body: new FormData(form),
+		headers: {
+			Accept: 'application/json',
+		},
+	})
+	.then((respuesta) => respuesta.json().then((datos) => ({
+		ok: respuesta.ok,
+		status: respuesta.status,
+		datos,
+	})))
+	.then(({ ok, status, datos }) => {
+		if (!ok) {
+			throw new Error(datos.mensaje || `Error al registrar el participante. (${status})`);
+		}
+
+		form.reset();
+		mensajeFormulario.className = 'mensaje_formulario mensaje_formulario_exito';
+		mensajeFormulario.textContent = datos.mensaje || 'El participante se ha registrado correctamente.';
+	})
+	.catch(() => {
+		mensajeFormulario.className = 'mensaje_formulario';
+		mensajeFormulario.textContent = 'No se ha podido registrar el participante. Revisa los datos e inténtalo de nuevo.';
+	});
 });
 
 limpiarTodosLosErrores();
