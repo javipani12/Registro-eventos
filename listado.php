@@ -1,3 +1,10 @@
+<?php
+    require_once './php/sesion.php';
+
+    redirigirSiNoAutenticado();
+    $usuario = obtenerUsuarioSesion() ?? [];
+?>
+
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -9,14 +16,18 @@
 </head>
 <body class="pagina-listado">
     <header class="cabecera">
-        <nav class="navegacion">
+        <nav class="navegacion navegacion--principal">
             <h1 class="titulo-proyecto">Listado de inscritos</h1>
+            <div class="navegacion__acciones">
+                <span class="navegacion__texto">Sesión iniciada<?= !empty($usuario['nombre']) ? ' como ' . htmlspecialchars((string) $usuario['nombre']) : '' ?>.</span>
+                <a class="enlace-cabecera enlace-cabecera--logout" href="./php/cerrar_sesion.php">Cerrar sesión</a>
+            </div>
         </nav>
     </header>
     <main class="contenido-listado">
         <header class="cabecera-listado">
             <h2 class="titulo-listado">Participantes registrados</h2>
-            <button type="button" class="boton-volver" onclick="window.location.href='./index.html'">Volver</button>
+            <button type="button" class="boton-volver" onclick="window.location.href='./index.php'">Volver</button>
         </header>
 
         <section class="buscador-listado">

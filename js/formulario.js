@@ -44,8 +44,9 @@ const expresiones = {
 };
 
 const mensajeInicial = mensajeFormulario.textContent.trim();
+const edadInicial = edadInput.value.trim() !== '' ? edadInput.value.trim() : '18';
 
-edadInput.value = '19';
+edadInput.value = edadInicial;
 
 function mostrarError(campo, mensaje) {
 	errores[campo].textContent = mensaje;
@@ -111,8 +112,8 @@ function validarEdad() {
 		return false;
 	}
 
-	if (numero < 19 || numero > 21) {
-		mostrarError('edad', 'La edad debe estar entre 19 y 21.');
+	if (numero < 18) {
+		mostrarError('edad', 'La edad debe ser mayor o igual a 18.');
 		return false;
 	}
 
@@ -206,8 +207,8 @@ function validarEdadPorBoton(desplazamiento) {
 
 	const nuevoValor = numero + desplazamiento;
 
-	if (nuevoValor < 19 || nuevoValor > 21) {
-		mostrarError('edad', 'La edad debe estar entre 19 y 21.');
+	if (nuevoValor < 18) {
+		mostrarError('edad', 'La edad debe ser mayor o igual a 18.');
 		return false;
 	}
 
@@ -235,7 +236,7 @@ campos.edad.addEventListener('input', () => {
 });
 
 form.addEventListener('reset', () => {
-	campos.edad.value = '19';
+	campos.edad.value = edadInicial;
 	limpiarTodosLosErrores();
 	mensajeFormulario.className = 'mensaje_formulario';
 	mensajeFormulario.textContent = mensajeInicial;
